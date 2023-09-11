@@ -35,8 +35,8 @@ class EditAttendance extends Component
         'attendance.replace_employee_id' => ['nullable', 'numeric'], 
         'attendance.late_cover_id' => ['nullable', 'numeric'], 
         'attendance.overtime_from_id' => ['nullable', 'numeric'],
-        'in_at' => ['required', 'date_format:H:i:s'],
-        'out_at' => ['required', 'date_format:H:i:s'],
+        'in_at' => ['required', 'date_format:H:i'],
+        'out_at' => ['required', 'date_format:H:i'],
         'is_in_next_day' => ['nullable', 'boolean'],
         'is_out_next_day' => ['nullable', 'boolean'],
     ];
