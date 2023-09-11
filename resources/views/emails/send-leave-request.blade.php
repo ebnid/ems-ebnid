@@ -1,5 +1,5 @@
 <x-mail::message>
-# Leave Request 
+# {{ $title }}
 
 {{ $reason }}
 
@@ -7,5 +7,5 @@
 
 
 Thanks,<br>
-### {{ $user }}
+{{ $user }}
 </x-mail::message>

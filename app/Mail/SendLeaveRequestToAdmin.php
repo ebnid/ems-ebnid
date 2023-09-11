@@ -32,7 +32,7 @@ class SendLeaveRequestToAdmin extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Send Leave Request To Admin',
+            subject: $this->leave->title ?? 'Leave Request from ' . $this->user,
         );
     }
 
@@ -47,7 +47,8 @@ class SendLeaveRequestToAdmin extends Mailable
                 'name' => $this->user,
                 'from' => $this->leave->from_date->format('d M Y'),
                 'to' => $this->leave->to_date->format('d M Y'),
-                'reason' => $this->leave->reason
+                'reason' => $this->leave->reason,
+                'title' => $this->leave->title,
             ],
         );
     }
