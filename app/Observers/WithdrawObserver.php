@@ -21,8 +21,6 @@ class WithdrawObserver
 
             $admins = User::whereIn('role', ['admin', 'root'])->get();
 
-            dd($user, $withdraw);
-
             foreach($admins as $admin){
                 Mail::to($admin->email)->send(new SendWithdrawRequestToAdmin($user, $withdraw));
             }

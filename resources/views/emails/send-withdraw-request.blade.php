@@ -1,12 +1,10 @@
 <x-mail::message>
-# Introduction
+# Withdraw request
 
-The body of your message.
+{{ $message }}
 
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
+## Amount {{ $amount }} BDT
 
 Thanks,<br>
-{{ config('app.name') }}
+{{ $user }}
 </x-mail::message>
