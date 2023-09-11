@@ -21,8 +21,8 @@ class SendWithdrawRequestToAdmin extends Mailable
 
     public function __construct($user, $withdraw)
     {
-        $this->user;
-        $this->withdraw;
+        $this->user = $user;
+        $this->withdraw = $withdraw;
     }
 
     /**
