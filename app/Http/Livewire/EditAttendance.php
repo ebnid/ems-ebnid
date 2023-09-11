@@ -132,7 +132,7 @@ class EditAttendance extends Component
                 $this->attendance->early_out_time = $overTimeOrDeductTime;
                 $this->attendance->overtime = null;
 
-                if(!$this->attendance->our_out_type){
+                if(!$this->attendance->early_out_time){
                     $this->attendance->early_out_type = Attendance::EARLY_OUT_TYPE_NON_PAYABLE;
                 }
                 
