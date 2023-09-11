@@ -3,6 +3,10 @@
 namespace App\Observers;
 
 use App\Models\Withdraw;
+use App\Mail\SendWithdrawRequestToAdmin;
+use Illuminate\Support\Facades\Mail;
+use App\Models\User;
+
 
 class WithdrawObserver
 {
@@ -11,7 +15,21 @@ class WithdrawObserver
      */
     public function created(Withdraw $withdraw): void
     {
-        //
+        try {
+
+            $user = $withdraw->employee->user->name;
+
+            $admins = User::whereIn('role', ['admin', 'root'])->get();
+
+            dd($user, $withdraw);
+
+            foreach($admins as $admin){
+                Mail::to($admin->email)->send(new SendWithdrawRequestToAdmin($user, $withdraw));
+            }
+
+        }catch(\Exception $e){
+            
+        }
     }
 
     /**

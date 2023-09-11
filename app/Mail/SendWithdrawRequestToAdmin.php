@@ -16,9 +16,13 @@ class SendWithdrawRequestToAdmin extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public $user;
+    public $withdraw;
+
+    public function __construct($user, $withdraw)
     {
-        //
+        $this->user;
+        $this->withdraw;
     }
 
     /**
@@ -27,7 +31,7 @@ class SendWithdrawRequestToAdmin extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Send Withdraw Request To Admin',
+            subject: 'Withdraw request from ' . $this->user,
         );
     }
 
@@ -37,7 +41,12 @@ class SendWithdrawRequestToAdmin extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.send-withdreaw-request',
+            markdown: 'emails.send-withdraw-request',
+            with: [
+                'user' => $this->user,
+                'message' => $this->withdraw->message,
+                'amount' => $this->withdraw->amount,
+            ],
         );
     }
 
