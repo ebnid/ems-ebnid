@@ -154,7 +154,7 @@
                             <div class="flex flex-col justify-center items-center gap-1">
                                 @if($attendance->in_at && $attendance->out_at)
                                     <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">Basic BDT +{{ number_format($attendance->dailySalrayAmount(), 2) }}</span>
-                                    <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">+{{ number_format($attendance->dailySalrayAmount(), 2) }} +{{ number_format($attendance->overtimeMoneyAmount(), 2) }} -{{ number_format($attendance->lateDeductMoneyAmount(), 2) }} -{{ number_format($attendance->earlyLeaveMoneyDeductPercent(), 2) }} = {{ number_format($attendance->todayTotalSalary(), 2) }}</span>
+                                    <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">+{{ number_format($attendance->dailySalrayAmount(), 2) }} +{{ number_format($attendance->overtimeMoneyAmount(), 2) }} -{{ number_format($attendance->lateDeductMoneyAmount(), 2) }} -{{ number_format($attendance->earlyLeaveMoneyDeductAmount(), 2) }} = {{ number_format($attendance->todayTotalSalary(), 2) }}</span>
                                 @else 
                                     <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">N/A</span>
                                 @endif
