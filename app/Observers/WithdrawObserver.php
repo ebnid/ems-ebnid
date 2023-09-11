@@ -26,7 +26,7 @@ class WithdrawObserver
             }
 
         }catch(\Exception $e){
-            
+            dd($e->getMessage());
         }
     }
 
