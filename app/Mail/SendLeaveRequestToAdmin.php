@@ -16,9 +16,14 @@ class SendLeaveRequestToAdmin extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+
+    public $user;
+    public $leave;
+
+    public function __construct($user, $leave)
     {
-        //
+        $this->user = $user;
+        $this->leave = $leave;
     }
 
     /**
@@ -38,6 +43,12 @@ class SendLeaveRequestToAdmin extends Mailable
     {
         return new Content(
             markdown: 'emails.send-leave-request',
+            with: [
+                'name' => $this->user,
+                'from' => $this->leave->from_date->format('d M Y'),
+                'to' => $this->leave->to_date->format('d M Y'),
+                'reason' => $this->leave->reason
+            ],
         );
     }
 

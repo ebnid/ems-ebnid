@@ -1,12 +1,11 @@
 <x-mail::message>
-# Introduction
+# Leave Request 
 
-The body of your message.
+{{ $reason }}
 
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
+## Leave  From {{ $from }} to {{ $to }}
+
 
 Thanks,<br>
-{{ config('app.name') }}
+### {{ $user }}
 </x-mail::message>

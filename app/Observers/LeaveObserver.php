@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Models\Leave;
 use App\Mail\SendLeaveRequestToAdmin;
 use Illuminate\Support\Facades\Mail;
+use App\Models\User;
 
 class LeaveObserver
 {
@@ -13,9 +14,19 @@ class LeaveObserver
      */
     public function created(Leave $leave): void
     {
-        $user = $leave->employee->user;
 
-        dd($leave);
+
+        try {
+
+            $user = $leave->employee->user->name;
+
+            $admins = User::whereIn('role', ['admin', 'root'])->get();
+
+            Mail::to('contact.riyadmunauwar@gmail.com')->send(new SendLeaveRequestToAdmin($user, $leave));
+
+        }catch(\Exception $e){
+            dd($e->getMessage());
+        }
     }
 
     /**
