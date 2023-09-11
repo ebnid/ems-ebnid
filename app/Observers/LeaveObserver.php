@@ -15,7 +15,7 @@ class LeaveObserver
     {
         $user = $leave->employee->user;
 
-        dd($user);
+        dd($leave);
     }
 
     /**
