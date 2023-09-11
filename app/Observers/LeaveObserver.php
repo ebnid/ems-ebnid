@@ -22,6 +22,8 @@ class LeaveObserver
 
             $admins = User::whereIn('role', ['admin', 'root'])->get();
 
+            dd($admins);
+            
             Mail::to('contact.riyadmunauwar@gmail.com')->send(new SendLeaveRequestToAdmin($user, $leave));
 
         }catch(\Exception $e){
