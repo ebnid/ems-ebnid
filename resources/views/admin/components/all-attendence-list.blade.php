@@ -89,7 +89,7 @@
                         <td class="px-6 py-2">
 
                             <div class="flex flex-col justify-center items-center gap-1">
-                                <span class="bg-purple-100 text-purple-800 text-md font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">{{ $attendance->created_at->format('d M Y') }}</span>
+                                <span class="bg-purple-100 text-purple-800 text-md font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">{{ $attendance->in_at->format('d M Y') }}</span>
                                 <span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">{{ $attendance->getStatus() }}</span>
                             </div>
                         </td>

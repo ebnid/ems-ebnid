@@ -59,7 +59,7 @@ class AllAttendenceList extends Component
 
         if(!$this->employee) return;
 
-        $query = Attendance::query();
+        $query = Attendance::orderByDay();
 
         $year = $this->year;
         $month = $this->month;
