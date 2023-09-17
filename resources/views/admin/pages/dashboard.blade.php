@@ -1,5 +1,7 @@
 <x-master-layout title="Dashboard">
 
+    <livewire:announce />
+    
     <livewire:dashboard-stats />
 
     <div class="mt-5">
