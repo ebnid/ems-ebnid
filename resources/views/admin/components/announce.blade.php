@@ -1,8 +1,9 @@
 <div>
-    <div class="bg-indigo-600 px-4 py-3 text-white">
-    <p class="text-center text-sm font-medium">
-        Love Alpine JS?
-        <a href="#" class="inline-block underline">Check out this new course!</a>
-    </p>
-    </div>
+    @if($is_mobile_device)
+        <div class="bg-black px-4 py-3 text-white mb-5">
+            <p class="text-center text-sm font-medium">
+                <a href="#" class="inline-block underline">You are browsing using mobile device from </a>
+            </p>
+        </div>
+    @endif
 </div>

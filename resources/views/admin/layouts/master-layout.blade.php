@@ -39,8 +39,6 @@
     </head>
     <body x-data="{ isNavigationOpen: false }" class="font-sans antialiased bg-white md:bg-gray-200">
 
-        <livewire:announce />
-        
         @include('admin.partials.sidebar')
 
         @include('admin.partials.header')
