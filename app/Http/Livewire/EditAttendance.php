@@ -53,15 +53,15 @@ class EditAttendance extends Component
     }
 
 
-    public function updatedInAt($value)
-    {
-        $this->in_at = "{$value}:00";
-    }
+    // public function updatedInAt($value)
+    // {
+    //     $this->in_at = "{$value}";
+    // }
 
-    public function updatedOutAt($value)
-    {
-        $this->out_at = "{$value}:00";
-    }
+    // public function updatedOutAt($value)
+    // {
+    //     $this->out_at = "{$value}";
+    // }
 
 
     public function updateAttendanceHandeler()
