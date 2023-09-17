@@ -36,7 +36,7 @@ class Attendance extends Model
 
     public function scopeOrderByDay($query)
     {
-        return $query->orderByRaw('DAY(in_at) DESC');
+        return $query->orderByRaw('DAY(in_at) ASC');
     }
 
     public function scopeFinished($query)
