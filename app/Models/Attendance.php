@@ -32,6 +32,18 @@ class Attendance extends Model
     ];
 
 
+    // Model Scope
+
+    public function scopeOrderByDay($query)
+    {
+        return $query->orderByRaw('DAY(in_at) ASC');
+    }
+
+    public function scopeFinished($query)
+    {
+        return $query->whereNotNull('in_at')->whereNotNull('out_at');
+    }
+
     // Relationship
     public function employee()
     {

@@ -259,7 +259,7 @@ class CreateSalary extends Component
 
         if(!$this->employee_id) return [];
 
-        $query = Attendance::query();
+        $query = Attendance::orderByDay()->finished();
 
         $year = $this->year;
         $month = $this->month;
@@ -284,7 +284,7 @@ class CreateSalary extends Component
 
         if(!$this->employee_id) return [];
 
-        $query = Attendance::query();
+        $query = Attendance::orderByDay()->finished();
 
         $year = $this->year;
         $month = $this->month;
@@ -297,6 +297,8 @@ class CreateSalary extends Component
         $query->where('replace_employee_id', $this->employee_id);
 
         $query->where('type', 'replace');
+
+    
 
         return $query->get();
 
