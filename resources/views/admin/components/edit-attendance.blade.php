@@ -103,7 +103,7 @@
                                         <label for="is_in_next_day" class="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">Is Next Day</label>
                                     </div>
                                 </label>
-                                <input wire:model.debounce="in_at" type="time" id="office_in" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                                <input wire:model.debounce="in_at" type="datetime-local" id="office_in" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
                             </div>
                         </div>
 
@@ -116,7 +116,7 @@
                                         <label for=is_out_next_day" class="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300">Is Next Day</label>
                                     </div>
                                 </label>
-                                <input wire:model.debounce="out_at" type="time" id="out_at" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                                <input wire:model.debounce="out_at" type="datetime-local" id="out_at" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
                             </div>
                         </div>
 

@@ -18,7 +18,6 @@ class EditAttendance extends Component
     public $attendance;
     public $employees = [];
 
-
     public $in_at;
     public $out_at;
 
@@ -35,8 +34,8 @@ class EditAttendance extends Component
         'attendance.replace_employee_id' => ['nullable', 'numeric'], 
         'attendance.late_cover_id' => ['nullable', 'numeric'], 
         'attendance.overtime_from_id' => ['nullable', 'numeric'],
-        'in_at' => ['required', 'date_format:H:i'],
-        'out_at' => ['required', 'date_format:H:i'],
+        'in_at' => ['required', 'date_format:Y-m-d H:i'],
+        'out_at' => ['required', 'date_format:Y-m-d H:i'],
         'is_in_next_day' => ['nullable', 'boolean'],
         'is_out_next_day' => ['nullable', 'boolean'],
     ];
@@ -52,16 +51,6 @@ class EditAttendance extends Component
         return view('admin.components.edit-attendance');
     }
 
-
-    // public function updatedInAt($value)
-    // {
-    //     $this->in_at = "{$value}";
-    // }
-
-    // public function updatedOutAt($value)
-    // {
-    //     $this->out_at = "{$value}";
-    // }
 
 
     public function updateAttendanceHandeler()
@@ -157,11 +146,11 @@ class EditAttendance extends Component
         $this->attendance = Attendance::with('employee.shift')->find($id);
 
         if($this->attendance->in_at){
-            $this->in_at = $this->attendance->in_at->format('H:i');
+            $this->in_at = $this->attendance->in_at->format('Y-m-d H:i');
         }
 
         if($this->attendance->out_at){
-            $this->out_at = $this->attendance->out_at->format('H:i');
+            $this->out_at = $this->attendance->out_at->format('Y-m-d H:i');
         }
 
         $this->is_edit_mode_on = true;
