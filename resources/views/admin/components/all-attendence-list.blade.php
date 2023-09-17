@@ -139,7 +139,7 @@
                         <td class="px-6 py-2">
                             @if($attendance->overtime() ?? false)
                                 <div class="flex flex-col justify-center items-center gap-1">
-                                    <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">{{ $attendance->overtime() }} minutes</span>
+                                    <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Total {{ $attendance->overtime() }} minutes</span>
                                     <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">+{{ number_format($attendance->overtimeMoneyAmountPercent(), 2) }}%</span>
                                     <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">BDT +{{ number_format($attendance->overtimeMoneyAmount(), 2) }}</span>
                                     @if($attendance->overtimeFromEmploye)
