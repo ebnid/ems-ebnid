@@ -31,9 +31,9 @@ class DashboardStats extends Component
 
     private function calculateCurrentSalaryOfThisMonth()
     {
-        $attendances = Attendance::finished()->where('employee_id', $this->employee_id)->whereYear('in_at', now()->year)->whereMonth('in_at', now()->month)->whereIn('type', ['off-day', 'pay-leave', 'present'])->get();
+        $attendances = Attendance::finished()->where('employee_id', $this->employee_id)->whereYear('created_at', now()->year)->whereMonth('created_at', now()->month)->whereIn('type', ['off-day', 'pay-leave', 'present'])->get();
         
-        $repalce_attendances = Attendance::finished()->whereYear('in_at', now()->year)->whereMonth('in_at', now()->month)->where('replace_employee_id', $this->employee_id)->where('type', 'replace')->get();
+        $repalce_attendances = Attendance::finished()->whereYear('created_at', now()->year)->whereMonth('created_at', now()->month)->where('replace_employee_id', $this->employee_id)->where('type', 'replace')->get();
 
         $regular_total_salary = $attendances   ->sum(fn($item) => $item->todayTotalSalary());
 

@@ -84,7 +84,7 @@
                             {{ ++$loop->index  }}
                         </th>
                         <td class="px-6 py-1">
-                            {{ $duty->in_at->format('d M Y') }}
+                            {{ $duty->created_at->format('d M Y') }}
                         </td>
                         <td class="px-6 py-1">
                             {{ number_format($duty->dailySalrayAmount(), 2) }}
