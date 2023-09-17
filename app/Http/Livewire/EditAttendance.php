@@ -156,8 +156,13 @@ class EditAttendance extends Component
 
         $this->attendance = Attendance::with('employee.shift')->find($id);
 
-        $this->in_at = $this->attendance->in_at->format('H:i');
-        $this->out_at = $this->attendance->out_at->format('H:i');
+        if($this->attendance->in_at){
+            $this->in_at = $this->attendance->in_at->format('H:i');
+        }
+
+        if($this->attendance->out_at){
+            $this->out_at = $this->attendance->out_at->format('H:i');
+        }
 
         $this->is_edit_mode_on = true;
     }
