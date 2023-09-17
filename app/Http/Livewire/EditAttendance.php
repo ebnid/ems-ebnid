@@ -34,8 +34,8 @@ class EditAttendance extends Component
         'attendance.replace_employee_id' => ['nullable', 'numeric'], 
         'attendance.late_cover_id' => ['nullable', 'numeric'], 
         'attendance.overtime_from_id' => ['nullable', 'numeric'],
-        'in_at' => ['required', 'date_format:Y-m-d H:i'],
-        'out_at' => ['required', 'date_format:Y-m-d H:i'],
+        // 'in_at' => ['required', 'date_format:Y-m-d H:i'],
+        // 'out_at' => ['required', 'date_format:Y-m-d H:i'],
         'is_in_next_day' => ['nullable', 'boolean'],
         'is_out_next_day' => ['nullable', 'boolean'],
     ];
@@ -56,7 +56,7 @@ class EditAttendance extends Component
     public function updateAttendanceHandeler()
     {
         dd($this->in_at);
-        
+
         $this->validate();
 
         $this->updateOfficeInTime();
