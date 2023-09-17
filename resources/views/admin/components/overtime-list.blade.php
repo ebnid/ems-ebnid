@@ -89,7 +89,7 @@
                                 {{ $overtime->end_at->format('d M Y h:i A') ?? '' }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $overtime->overtime ?? 0 }}
+                                {{ $overtime->overtime ?? 0 }} minutes
                             </td>
                             <td class="px-6 py-4">
                                 @if($overtime->status === 'pending')
