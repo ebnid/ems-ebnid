@@ -77,7 +77,7 @@
                                 {{ $overtime->created_at->format('d M Y') }}
                             </th>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $overtime->created_at->format('l') }}
+                                {{ $overtime->created_at->format('D') }}
                             </th>
                             <td class="px-6 py-4">
                                 {{ $overtime->employee->user->name ?? '' }}
