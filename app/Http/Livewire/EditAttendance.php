@@ -15,8 +15,12 @@ class EditAttendance extends Component
 
     public $is_edit_mode_on = false;
 
+    
     public $attendance;
     public $employees = [];
+
+    public $attendance_date;
+    public $attendance_date_plus_one_day;
 
     public $in_at;
     public $out_at;
@@ -92,7 +96,7 @@ class EditAttendance extends Component
 
         $lateTimeInMinute = $this->countLateMinutes();
 
-        $this->attendance->in_at = $this->in_at;
+        $this->attendance->in_at = $this->attendance_date . ' ' . $this->in_at;
         $this->attendance->late_time = $lateTimeInMinute;
 
         if(!$this->attendance->late_type){
@@ -103,7 +107,7 @@ class EditAttendance extends Component
 
     private function updateOfficeInTimeIn()
     {
-        $this->attendance->in_at = $this->in_at;
+        $this->attendance->in_at = $this->attendance_date . ' ' . $this->in_at;
         $this->attendance->late_time = null;
         $this->attendance->late_type = null;
     }
@@ -115,20 +119,24 @@ class EditAttendance extends Component
             $overTimeOrDeductTime = $this->countOvertimeOrEarlyLeftTime();
 
             if($this->checkIsOvertime() || $this->is_out_next_day){
+
+                $this->attendance->out_at = $this->attendance_date_plus_one_day . ' ' . $this->out_at;
                 $this->attendance->early_out_time = null;
                 $this->attendance->overtime = $overTimeOrDeductTime;
                 $this->attendance->early_out_type = null;
+
             }else {
+
                 $this->attendance->early_out_time = $overTimeOrDeductTime;
                 $this->attendance->overtime = null;
 
                 if(!$this->attendance->early_out_time){
                     $this->attendance->early_out_type = Attendance::EARLY_OUT_TYPE_NON_PAYABLE;
                 }
+
+                $this->attendance->out_at = $this->attendance_date . ' ' . $this->out_at;
                 
             }
-
-            $this->attendance->out_at = $this->out_at;
 
     }
 
@@ -154,7 +162,16 @@ class EditAttendance extends Component
             $this->out_at = $this->attendance->out_at->format('H:i');
         }
 
+        $this->setAttendanceDate();
+
         $this->is_edit_mode_on = true;
+    }
+
+
+    private function setAttendanceDate()
+    {
+        $this->attendance_date = $this->attendance->created_at->format('Y-m-d');
+        $this->attendance_date_plus_one_day = $this->attendance->created_at->addDays(1)->format('Y-m-d');
     }
 
     private function countLateMinutes()
