@@ -15,6 +15,7 @@ class Announce extends Component
     {
         $agent = new Agent();
         $this->browser = $agent->browser();
+        $this->is_mobile_device = $agent->isMobile();
     }
 
     public function render()
