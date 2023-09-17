@@ -55,6 +55,8 @@ class EditAttendance extends Component
 
     public function updateAttendanceHandeler()
     {
+        dd($this->in_at);
+        
         $this->validate();
 
         $this->updateOfficeInTime();
