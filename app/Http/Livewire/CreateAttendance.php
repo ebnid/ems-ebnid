@@ -7,11 +7,13 @@ use App\Models\Attendance;
 use App\Models\Employee;
 use App\Traits\WithSweetAlert;
 use Carbon\Carbon;
+use Jenssegers\Agent\Agent;
 
 class CreateAttendance extends Component
 {
     use WithSweetAlert;
 
+    public $is_mobile = false;
     public $employee;
     public $employees = [];
 
@@ -57,6 +59,7 @@ class CreateAttendance extends Component
     public function mount()
     {
         $this->initData();
+        $this->setupIsMobile();
     }
 
     public function render()
@@ -104,6 +107,12 @@ class CreateAttendance extends Component
     private function initData()
     {
         $this->employees = Employee::with('user')->where('status', 'running')->get();
+    }
+
+    private function setupIsMobile()
+    {
+        $agent = new Agent();
+        $this->is_mobile = $agent->isMobile();
     }
 
 }
