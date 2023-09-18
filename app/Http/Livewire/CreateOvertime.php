@@ -44,6 +44,7 @@ class CreateOvertime extends Component
     public function refreshOvertime()
     {
         $this->initData();
+        $this->setupIsMobile();
     }
 
     public function startOvertime()
