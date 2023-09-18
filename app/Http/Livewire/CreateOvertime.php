@@ -6,12 +6,14 @@ use Livewire\Component;
 use App\Models\Attendance;
 use App\Models\Overtime;
 use App\Traits\WithSweetAlert;
+use Jenssegers\Agent\Agent;
 
 class CreateOvertime extends Component
 {
 
     use WithSweetAlert;
 
+    public $is_mobile = false;
     public $last_attendance;
     public $last_overtime;
     public $employee;
@@ -125,6 +127,13 @@ class CreateOvertime extends Component
     private function getLastAttendance()
     {
         return Attendance::where('employee_id', $this->employee->id)->latest()->first();
+    }
+
+
+    private function setupIsMobile()
+    {
+        $agent = new Agent();
+        $this->is_mobile = $agent->isMobile();
     }
 
 }
