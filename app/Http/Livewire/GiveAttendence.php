@@ -7,11 +7,14 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Employee;
 use App\Models\Attendance;
 use App\Traits\WithSweetAlert;
+use Jenssegers\Agent\Agent;
 
 class GiveAttendence extends Component
 {
 
     use WithSweetAlert;
+
+    public $is_mobile = false;
 
     // Data Property
     public $employee;
@@ -26,7 +29,8 @@ class GiveAttendence extends Component
 
     public function mount()
     {
-        $this->initialSetup();        
+        $this->initialSetup();       
+        $this->setupIsMobile();
     }
 
     public function render()
@@ -261,6 +265,12 @@ class GiveAttendence extends Component
         $this->initData();
         $this->checkTodayAttendenceStatus();
         $this->checkIsThisDeviceAllowed();
+    }
+
+    private function setupIsMobile()
+    {
+        $agent = new Agent();
+        $this->is_mobile = $agent->isMobile();
     }
 
 }

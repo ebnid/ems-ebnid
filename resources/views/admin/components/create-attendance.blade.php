@@ -1,5 +1,4 @@
 <div>
-    @if(!$is_mobile)
     <div class="bg-white max-w-2xl rounded-md">
 
         <div class="p-7 max-w-2xl">
@@ -144,5 +143,4 @@
 
     <!-- Loader -->
     <x-loader wire:loading wire:target="createAttendanceHandeler" />
-    @endif
 </div>
