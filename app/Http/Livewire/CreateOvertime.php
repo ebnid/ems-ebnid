@@ -25,6 +25,7 @@ class CreateOvertime extends Component
     public function mount()
     {
         $this->initData();
+        $this->setupIsMobile();
     }
 
     public function render()
@@ -44,7 +45,6 @@ class CreateOvertime extends Component
     public function refreshOvertime()
     {
         $this->initData();
-        $this->setupIsMobile();
     }
 
     public function startOvertime()
