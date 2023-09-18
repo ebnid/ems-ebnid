@@ -8,14 +8,16 @@ use Jenssegers\Agent\Agent;
 class Announce extends Component
 {
 
-    public $is_mobile_device = true;
     public $browser;
+    public $platform;
+    public $device;
 
     public function mount()
     {
         $agent = new Agent();
         $this->browser = $agent->browser();
-        $this->is_mobile_device = $agent->isMobile();
+        $this->platform = $agent->platform();
+        $this->device = $agent->device();
     }
 
     public function render()
