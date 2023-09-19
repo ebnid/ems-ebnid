@@ -268,7 +268,7 @@
                             {{ $overtime->created_at->format('d M Y') }}
                         </td>
                         <td class="px-6 py-1">
-                            {{ $overtime->created_at->format('l) }}
+                            {{ $overtime->created_at->format('l') }}
                         </td>
                         <td class="px-6 py-1">
                             {{ $overtime->created_at->overtime }} Minutes
