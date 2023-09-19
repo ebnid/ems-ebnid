@@ -303,7 +303,7 @@
                         <td class="px-6 py-1"></td>
                         <td class="px-6 py-1"></td>
                         <td class="px-6 py-1">
-                            {{ $overtimes->sum(fn($item) => $item->overtimeMoneyAmount()) }}
+                            {{ $overtimes->sum(fn($item) => $item->overtimeMoneyAmount()) }} Tk
                         </td>
                     </tr>
                 </tbody>

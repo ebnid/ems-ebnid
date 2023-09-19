@@ -54,6 +54,12 @@ class AllAttendenceList extends Component
         $this->shift = $this->employee->shift;
     }
 
+
+    public function showSingleDayOvertime($id)
+    {
+        dd($id);
+    }
+
     private function getAttendances()
     {
 

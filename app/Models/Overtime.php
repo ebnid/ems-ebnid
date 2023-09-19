@@ -42,7 +42,6 @@ class Overtime extends Model
     }
 
     // Compute Func
-
     public function overtimeMoneyAmount()
     {
         return $this->employee->salaryPerMinute() * $this->overtime;
