@@ -57,7 +57,7 @@ class AllAttendenceList extends Component
 
     public function showSingleDayOvertime($id)
     {
-        dd($id);
+        $this->emit('onSingleDayOvertimeDetails', $id);
     }
 
     private function getAttendances()
