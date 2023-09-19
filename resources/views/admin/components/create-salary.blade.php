@@ -228,6 +228,75 @@
     @endif
 
 
+
+    <!--Overtimes List -->
+    @if(count($overtimes) > 0)
+    <div class="mt-8 max-w-sm mx-auto">
+        <h1 class="text-center mb-5">Callable Overtime</h1>
+        <div class="relative overflow-x-auto">
+            <table class="whitespace-nowrap w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr class="text-center">
+                        <th scope="col" class="x-6 py-3">
+                            #
+                        </th>
+
+                        <th scope="col" class="px-6 py-3">
+                            Date
+                        </th>
+
+                        <th scope="col" class="px-6 py-3">
+                            Day
+                        </th>
+
+                        <th scope="col" class="px-6 py-3">
+                            Min
+                        </th>
+
+                        <th scope="col" class="px-6 py-3">
+                            Amount
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($overtimes ?? [] as $overtime)
+                    <tr class="group bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ ++$loop->index  }}
+                        </th>
+                        <td class="px-6 py-1">
+                            {{ $overtime->created_at->format('d M Y') }}
+                        </td>
+                        <td class="px-6 py-1">
+                            {{ $overtime->created_at->format('l) }}
+                        </td>
+                        <td class="px-6 py-1">
+                            {{ $overtime->created_at->overtime }} Minutes
+                        </td>
+                        <td class="px-6 py-1">
+                            {{ $overtime->created_at->overtimeMoneyAmount() }} Minutes
+                        </td>
+                    </tr>
+                    @endforeach
+                
+                    <tr class="group font-bold text-black bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Total
+                        </th>
+                        <td class="px-6 py-1">
+                            
+                        </td>
+                        <td class="px-6 py-1">
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @endif
+
+
     <!--Withdraws List -->
     @if(count($withdraws) > 0)
     <div class="mt-8 max-w-sm mx-auto">
@@ -282,7 +351,7 @@
     @endif
 
 
-    <!--Withdraws List -->
+    <!--Final Salary -->
     @if(count($duties) > 0)
     <div class="mt-8 max-w-sm mx-auto pb-20">
         <h1 class="text-center mb-5">Final Salary</h1>

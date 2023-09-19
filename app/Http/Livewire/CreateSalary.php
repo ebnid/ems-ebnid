@@ -129,7 +129,7 @@ class CreateSalary extends Component
 
     private function initData()
     {
-        
+
         $this->resetNecessaryProperty();
 
         $this->setSessionSalaryMonthAndYear();
@@ -335,7 +335,7 @@ class CreateSalary extends Component
 
     private function getOvertimes()
     {
-        return Overtime::accepted()->get();
+        return Overtime::accepted()->where('employee_id', $this->employee_id)->get();
     }
 
 

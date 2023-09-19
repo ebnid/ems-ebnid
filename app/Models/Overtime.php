@@ -40,4 +40,16 @@ class Overtime extends Model
     {
         return $this->belongsTo(Attendance::class);
     }
+
+    // Compute Func
+    public function dailySalrayAmount()
+    {
+        return $this->employee->salaryPerMinute() * config('setting.duty_per_day_hour') * 60;
+    }
+
+
+    public function overtimeMoneyAmount()
+    {
+        $this->dailySalrayAmount() * $this->overtime;
+    }
 }
