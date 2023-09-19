@@ -1,7 +1,7 @@
 <div>
    @if($is_show_single_day_overtime_list)
         <x-custom-modal>
-            <div class="bg-white max-w-2xl mx-auto rounded-md mt-10">
+            <div class="bg-white max-w-4xl mx-auto rounded-md mt-10">
                 <!-- Header -->
                 <div class="p-5 flex justify-between border-b">
                     <h1>Collable Overtime List</h1>
@@ -63,10 +63,10 @@
                                                 {{ $overtime->employee->user->name ?? '' }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $overtime->start_at->format('d M Y h:i A') ?? '' }}
+                                                {{ $overtime->start_at->format('h:i A') ?? '' }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $overtime->end_at->format('d M Y h:i A') ?? '' }}
+                                                {{ $overtime->end_at->format('h:i A') ?? '' }}
                                             </td>
                                             <td class="px-6 py-4">
                                                 {{ $overtime->overtime ?? 0 }} minutes
