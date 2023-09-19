@@ -297,9 +297,11 @@
                         <th scope="row" class="px-6 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             Total
                         </th>
-                        <td class="px-6 py-1">
-                            
-                        </td>
+                        <td class="px-6 py-1"></td>
+                        <td class="px-6 py-1"></td>
+                        <td class="px-6 py-1"></td>
+                        <td class="px-6 py-1"></td>
+                        <td class="px-6 py-1"></td>
                         <td class="px-6 py-1">
                             {{ $overtimes->sum(fn($item) => $item->overtimeMoneyAmount()) }}
                         </td>
