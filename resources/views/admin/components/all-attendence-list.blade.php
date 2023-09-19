@@ -206,4 +206,5 @@
 
 @push('modals')
     <livewire:edit-attendance />
+    <livewire:single-day-overtime-details />
 @endpush
