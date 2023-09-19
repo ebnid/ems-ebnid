@@ -274,7 +274,7 @@
                             {{ $overtime->overtime }} Minutes
                         </td>
                         <td class="px-6 py-1">
-                            {{ $overtime->overtimeMoneyAmount() }} Minutes
+                            {{ $overtime->overtimeMoneyAmount() }}
                         </td>
                     </tr>
                     @endforeach
