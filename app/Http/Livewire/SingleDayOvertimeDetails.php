@@ -25,7 +25,7 @@ class SingleDayOvertimeDetails extends Component
 
     public function preparedSingleDayOvertimeList($id)
     {
-        $this->overtimes = Overtime::where('employee_id', $id)->get();
+        $this->overtimes = Overtime::where('attendance_id', $id)->get();
 
         $this->is_show_single_day_overtime_list = true;
     }
