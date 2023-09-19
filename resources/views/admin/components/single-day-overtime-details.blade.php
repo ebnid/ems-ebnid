@@ -1,5 +1,5 @@
 <div>
-   @if($is_edit_mode_on)
+   @if($is_show_single_day_overtime_list)
         <x-custom-modal>
             <div class="bg-white max-w-2xl mx-auto rounded-md mt-10">
                 <!-- Header -->
