@@ -45,6 +45,7 @@ class AllAttendenceList extends Component
     {
         $this->setSessionSalaryMonthAndYear();
         $attendances = $this->getAttendances();
+        dd($attendances);
         return view('admin.components.all-attendence-list', compact('attendances'));
     }
 
@@ -65,7 +66,7 @@ class AllAttendenceList extends Component
 
         if(!$this->employee) return;
 
-        $query = Attendance::orderByDay();
+        $query = Attendance::withCount('overtimeList')->orderByDay();
 
         $year = $this->year;
         $month = $this->month;
