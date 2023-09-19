@@ -12,7 +12,7 @@ class SingleDayOvertimeDetails extends Component
 
     public $overtimes = [];
 
-    protected $rules = [
+    protected $listeners = [
         'onSingleDayOvertimeDetails' => 'preparedSingleDayOvertimeList'
     ];
 
