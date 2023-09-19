@@ -4,7 +4,7 @@
             <div class="bg-white max-w-2xl mx-auto rounded-md mt-10">
                 <!-- Header -->
                 <div class="p-5 flex justify-between border-b">
-                    <h1>Overtime List</h1>
+                    <h1>Collable Overtime List</h1>
                     <span wire:click.debounce="cancelModal" class="cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -125,6 +125,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div>
+                    @else 
+                        <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+                            <span class="font-medium">This day overtime list is empty!</span>
                         </div>
                     @endif
                 </div>
