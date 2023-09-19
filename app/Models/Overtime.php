@@ -18,6 +18,18 @@ class Overtime extends Model
     ];
 
 
+    // Model Scope
+    public function scopeFinished($query)
+    {
+        return $query->whereNotNull('start_at')->whereNotNull('end_at');
+    }
+
+    public function scopeAccepted($query)
+    {
+        return $query->whereNotNull('start_at')->whereNotNull('end_at')->where('status', 'accepted');
+    }
+
+
     // Relationship
     public function employee()
     {

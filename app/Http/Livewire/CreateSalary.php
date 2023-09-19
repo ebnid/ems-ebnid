@@ -7,6 +7,7 @@ use Livewire\WithPagination;
 use App\Models\Employee;
 use App\Models\Salary;
 use App\Models\Withdraw;
+use App\Models\Overtime;
 use App\Models\Attendance;
 use App\Traits\WithSweetAlert;
 use Carbon\Carbon;
@@ -35,6 +36,7 @@ class CreateSalary extends Component
     public $duties = [];
     public $withdraws = [];
     public $replace_duties = [];
+    public $overtimes = [];
 
     // Daily Duty
     public $duty_total_basic = 0;
@@ -127,6 +129,7 @@ class CreateSalary extends Component
 
     private function initData()
     {
+        
         $this->resetNecessaryProperty();
 
         $this->setSessionSalaryMonthAndYear();
@@ -138,6 +141,7 @@ class CreateSalary extends Component
         $this->duties = $this->getDuties();
         $this->replace_duties = $this->getReplaceDuties();
         $this->withdraws = $this->getWithdraws();
+        $this->overtimes = $this->getOvertimes();
 
         $this->calculateTotalDutiesSummery();
         $this->calculateTotalReplaceDutiesSummery();
@@ -326,6 +330,12 @@ class CreateSalary extends Component
 
         return $query->get();
 
+    }
+
+
+    private function getOvertimes()
+    {
+        return Overtime::accepted()->get();
     }
 
 
