@@ -25,6 +25,8 @@ class SingleDayOvertimeDetails extends Component
 
     public function preparedSingleDayOvertimeList($id)
     {
+
+        dd($id);
         $this->overtimes = Overtime::all();
 
         $this->is_show_single_day_overtime_list = true;
