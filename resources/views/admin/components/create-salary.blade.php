@@ -231,7 +231,7 @@
 
     <!--Overtimes List -->
     @if(count($overtimes) > 0)
-    <div class="mt-8 max-w-sm mx-auto">
+    <div class="mt-8 max-w-4xl mx-auto">
         <h1 class="text-center mb-5">Callable Overtime</h1>
         <div class="relative overflow-x-auto">
             <table class="whitespace-nowrap w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -250,7 +250,15 @@
                         </th>
 
                         <th scope="col" class="px-6 py-3">
-                            Min
+                            Start At
+                        </th>
+
+                        <th scope="col" class="px-6 py-3">
+                            End At
+                        </th>
+
+                        <th scope="col" class="px-6 py-3">
+                            Overtime Min
                         </th>
 
                         <th scope="col" class="px-6 py-3">
@@ -269,6 +277,12 @@
                         </td>
                         <td class="px-6 py-1">
                             {{ $overtime->created_at->format('l') }}
+                        </td>
+                        <td class="px-6 py-1">
+                            {{ $overtime->start_at->format('d M Y h:i A') }}
+                        </td>
+                        <td class="px-6 py-1">
+                            {{ $overtime->end_at->format('d M Y h:i A') }}
                         </td>
                         <td class="px-6 py-1">
                             {{ $overtime->overtime }} Minutes
