@@ -271,10 +271,10 @@
                             {{ $overtime->created_at->format('l') }}
                         </td>
                         <td class="px-6 py-1">
-                            {{ $overtime->created_at->overtime }} Minutes
+                            {{ $overtime->overtime }} Minutes
                         </td>
                         <td class="px-6 py-1">
-                            {{ $overtime->created_at->overtimeMoneyAmount() }} Minutes
+                            {{ $overtime->overtimeMoneyAmount() }} Minutes
                         </td>
                     </tr>
                     @endforeach
