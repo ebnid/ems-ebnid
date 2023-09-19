@@ -45,7 +45,6 @@ class AllAttendenceList extends Component
     {
         $this->setSessionSalaryMonthAndYear();
         $attendances = $this->getAttendances();
-        dd($attendances);
         return view('admin.components.all-attendence-list', compact('attendances'));
     }
 
