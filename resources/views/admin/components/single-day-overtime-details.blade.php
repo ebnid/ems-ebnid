@@ -13,7 +13,7 @@
                 </div>
 
                 <!-- Body -->
-                <div class="mt-4">
+                <div class="p-7">
                     <!-- Validation errors -->
                     <x-errors />
 
