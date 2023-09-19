@@ -42,14 +42,9 @@ class Overtime extends Model
     }
 
     // Compute Func
-    // public function dailySalrayAmount()
-    // {
-    //     return $this->employee->salaryPerMinute() * config('setting.duty_per_day_hour') * 60;
-    // }
-
 
     public function overtimeMoneyAmount()
     {
-        return $this->employee->dailySalrayAmount() * $this->overtime;
+        return $this->employee->salaryPerMinute() * $this->overtime;
     }
 }
