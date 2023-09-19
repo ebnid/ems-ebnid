@@ -13,7 +13,7 @@
                 </div>
 
                 <!-- Body -->
-                <div class="p-7 max-w-2xl">
+                <div class="p-7">
                     <!-- Validation errors -->
                     <x-errors />
 
