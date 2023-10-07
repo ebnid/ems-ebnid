@@ -167,17 +167,17 @@ class CreateSalary extends Component
         $this->duty_total_early_left_deduct = 0;
         $this->duty_total_overtime = 0;
         $this->duty_total_salary = 0;
-    
+
         // Replace/Overtime Duty
         $this->replace_total_basic = 0;
         $this->replace_total_late_deduct = 0;
         $this->replace_total_early_left_deduct = 0;
         $this->replace_total_overtime = 0;
         $this->replace_total_salary = 0;
-    
+
         // Withdraws
         $this->withdraw_total_amount = 0;
-    
+
         // Salary
         $this->total_monthly_salary = 0;
         $this->total_previous_overpaid = 0;
@@ -196,7 +196,7 @@ class CreateSalary extends Component
     {
         $this->is_already_salary_done = Salary::whereYear('month_of_salary', $this->year)->whereMonth('month_of_salary', $this->month)->where('employee_id', $this->employee_id)->exists();
     }
- 
+
 
     private function setLastSalaryOverpaidAmount()
     {
@@ -302,7 +302,7 @@ class CreateSalary extends Component
 
         $query->where('type', 'replace');
 
-    
+
 
         return $query->get();
 
@@ -335,7 +335,7 @@ class CreateSalary extends Component
 
     private function getOvertimes()
     {
-        return Overtime::accepted()->where('employee_id', $this->employee_id)->get();
+        return Overtime::accepted()->where('employee_id', $this->employee_id)->whereMonth('created_at', $this->month)->get();
     }
 
 
@@ -343,7 +343,7 @@ class CreateSalary extends Component
     {
         $currentYear = intval(date('Y'));
         $startYear = config('setting.show_year_from_in_select');
-        
+
         for($currentYear; $currentYear >= $startYear; $currentYear--){
             $this->years[] = $currentYear;
         }
